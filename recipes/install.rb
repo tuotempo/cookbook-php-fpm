@@ -49,6 +49,8 @@ service_provider = nil
 # this is actually already done in chef, but is kept here for older chef releases
 if platform?('ubuntu') && node['platform_version'].to_f.between?(13.10, 14.10)
   service_provider = ::Chef::Provider::Service::Upstart
+elseif platform?('ubuntu') && node['platform_version'].to_f >= 16.04
+  service_provider = ::Chef::Provider::Service::Systemd
 end
 
 directory node['php-fpm']['log_dir']
