@@ -36,7 +36,7 @@ php_fpm_package_name = if node['php-fpm']['package_name'].nil?
 
 package php_fpm_package_name do
   action node['php-fpm']['installation_action']
-  version node['php-fpm']['version'] if node['php-fpm']['version']
+  version node['php-fpm']['package_version'] if node['php-fpm']['package_version']
 end
 
 php_fpm_service_name = if node['php-fpm']['service_name'].nil?
